@@ -1,3 +1,9 @@
+library(glmulti)
+library(survival)
+library(survminer)
+library(quantreg)
+library(rcompanion)
+
 #Logistic regression - Recurrence:
 glmulti_logistic_recurrence <- glmulti(recurrence ~.,data = data1, method = "h", crit = "aic", confsetsize= 3,  fitfunction = "glm", family = binomial)       
 glmulti_logistic_recurrence@formulas
