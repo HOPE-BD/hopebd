@@ -1,0 +1,32 @@
+#Logistic regression - Recurrence:
+glmulti_logistic_recurrence <- glmulti(recurrence ~.,data = data1, method = "h", crit = "aic", confsetsize= 3,  fitfunction = "glm", family = binomial)       
+glmulti_logistic_recurrence@formulas
+summary(glmulti_logistic_recurrence@objects[[1]])
+
+#Logistic regression - Recovery:
+glmulti_logistic_ fail_recovery <- glmulti(fail_recovery ~.,data = data2, method = "h", crit = "aic", confsetsize= 3,  fitfunction = "glm", family = binomial)       
+glmulti_logistic_ fail_recovery@formulas
+summary(glmulti_logistic_ fail_recovery [[1]])
+
+#Cox regression – Remission:
+survival_remission <- Surv(data3$time_to_remission, data3$event)
+glmulti_coxph_remission <- glmulti(survival_remission ~., data = data3, method = "h", crit = "aic", confsetsize = 3,  fitfunction = "coxph")   
+glmulti_coxph_remission@formulas
+summary(glmulti_coxph_remission @objects[[1]])
+
+#Cox regression – Recurrence:
+survival_recurrence <- Surv(data4$time_to_recurrence, data4$event)
+glmulti_coxph_recurrence <- glmulti(survival_recurrence ~., data = data4, method = "h", crit = "aic", confsetsize = 3,  fitfunction = "coxph")   
+glmulti_coxph_recurrence@formulas
+summary(glmulti_coxph_recurrence@objects[[1]])
+
+#Quantile regression:
+model_delay = rq(delay~., data = data5, tau = c(0.25,0.5,0.75,0.90))
+nagelkerke(model_delay)
+summary(model_delay,se = "nid")
+
+#Logistic regression - Dropout:
+glmulti_logistic_dropout <- glmulti(dropout ~.,data = data6, method = "h", crit = "aic", confsetsize= 3,  fitfunction = "glm", family = binomial)       
+glmulti_logistic_dropout@formulas
+summary(glmulti_logistic_dropout[[1]])
+
